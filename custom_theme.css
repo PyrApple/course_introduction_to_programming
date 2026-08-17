@@ -1,0 +1,89 @@
+/* @theme custom_theme */
+
+@import 'default';
+
+:root {
+  --margin-sides: 50px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+}
+
+section {
+  /* force slide content top align */
+  place-content: start;
+  padding-top: 120px; 
+  padding-left: var(--margin-sides);
+  padding-right: var(--margin-sides);
+}
+
+/* slide header */
+h1 {
+  /* force top align */
+  position: absolute;
+  top: 30px;
+  left: var(--margin-sides);
+  right: var(--margin-sides);
+
+  /* font style */
+  /* color: rgb(120, 133, 155); */
+  color:rgb(89, 104, 139);
+
+  /* bottom rule */
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;  
+}
+
+section.title {
+  place-content: center;
+  text-align: center;
+}
+
+section.title h1 {
+  top: 0px;
+  left: 0px;
+  position: relative;
+  border-bottom: none;
+}
+
+h2, h3 {
+  /* color:rgb(175, 174, 174) */
+  color:rgb(122, 142, 190);
+}
+
+section a {
+  color:rgb(109, 147, 237);
+}
+
+section strong {
+  color: #e85151;
+}
+
+section ul {
+  list-style-type: disc;
+}
+
+section ul ul {
+  /* padding-top: 10px; */
+  list-style-type: disc;
+}
+
+/* image macros */
+img[alt~="top-right"] {
+  position: absolute;
+  top: 120px;
+  right: var(--margin-sides);
+}
+
+img[alt~="bottom-right"] {
+  position: absolute;
+  bottom: 70px;
+  right: var(--margin-sides);
+}
+
+img[alt~="border"] {
+  border: solid;
+  border-color: black;
+  border-width: 2px;
+}

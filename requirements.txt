@@ -1,0 +1,11 @@
+control
+customtkinter
+jupyter
+jupyterlab
+matplotlib
+numpy
+playsound3
+pygame
+scipy
+sounddevice
+soundfile
