@@ -1,4 +1,12 @@
+# python
 __pycache__
+*.pyc
+
+# macos
 .DS_Store
+
+# generated
 drumloop_filtered.wav
+
+# vscode
 .vscode
