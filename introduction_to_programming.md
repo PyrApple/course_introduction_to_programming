@@ -178,10 +178,10 @@ Checkout https://realpython.com/cheatsheets/python for more.
 
 - An environment **adapted to your needs**
 - Should enable quick run/debug iterations (+ variable inspection)
-- Autocompletion with access to API (application programming interface)
-- Enables updates without breaking retro-compatibility
-- (optional) Large screen real-estate + window manager
-- (optional) Knowledge of main shortcuts
+- **Autocompletion** with access to API (application programming interface)
+- Enables updates without breaking retro-compatibility (e.g. package installs)
+- Large screen real-estate + window manager
+- Knowledge of **main shortcuts**
 
 ---
 
@@ -207,13 +207,13 @@ Checkout https://realpython.com/cheatsheets/python for more.
 `+` Makes you more efficient
 `+` Increases your reach
 
-`-` No more journey, directly reach destination. Fosters apathy for your own projects
-`-` No long term build-up skill (instant red flag during interviews)
+`-` No more journey, directly reach destination. Fosters **apathy for your own projects**
+`-` No long term build-up skill, **instant red flag** during interviews
 
 ## Like cheatcodes in games
-- Use once you've finished the game
+- Use once you've completed "the game"
 - Maybe use it for stages uterly useless. Not boring, useless: neither useful nor fun
-- Even then, sparingly or you'll no play it for long
+- Even then, sparingly or you'll soon stop playing
 
 ---
 
@@ -222,7 +222,7 @@ Checkout https://realpython.com/cheatsheets/python for more.
 
 ---
 
-# QuickScript 1 - Search Array
+# QuickScript 1 - Search Array (10 min.)
 
 ## Instructions
 
@@ -266,7 +266,7 @@ Create a script that loads the audio file `./assets/drumloop.wav` and plays it u
 
 Create a script that retrieves all the names of all the `.mp3` files in `./assets/scales` and plays each of them (`for` loop) using the `pygame` module. 
 
-Next, create a score using a `dictionnary` that stores an array of `notes` (indices of audio files) and `ioi` (inter onset interval, unique float). Play the score. Use the `sleep` method of the `time` module to pause between notes.
+Next, create a score using a `dictionary` that stores an array of `notes` (indices of audio files) and `ioi` (inter onset interval, unique float). Play the score. Use the `sleep` method of the `time` module to pause between notes.
 
 ## Takeaways
 
@@ -298,7 +298,7 @@ Modify the script to handle any arbitrary number of these "tap delays" using a `
 
 ## Different syntaxes and phylosophies
 
-Differences hard to summarise in a few slides. 
+Differences **hard to summarize in a few slides**. 
 
 To get a genuine understanding, design the same application (e.g. read file, sort content) using each of these (no particular order):
 
@@ -403,7 +403,7 @@ Create a script that loads the audio file `./assets/drumloop.wav`. Create a lowp
 
 ---
 
-# QuickScript 2 - Play audio backwards
+# QuickScript 2 - Play audio backwards (10 min.)
 
 ## Instructions
 
@@ -487,7 +487,7 @@ class MyClass
 GLOBAL_CONSTANT = 3.14
 ```
 
-A good naming scheme makes reading code more intuitive.
+A good naming scheme makes **reading code more intuitive**.
 
 ---
 
@@ -564,15 +564,15 @@ Add a second wave shape option using the `sawtooth` method of the `scipy.signal`
 
 ## How to name things
 
-- Variables: be descriptive, consistent, not too long
-- Functions/Methods: opt for verb-noun pairs to clearly indicate functionality
-- Class: a simple name that evokes what it is and what it is not.
+- Variables: be **descriptive**, consistent, not too long
+- Functions/Methods: opt for **verb-noun pairs** to clearly indicate functionality
+- Class: a simple name that evokes what it is **and what it is not**.
 
 > Very important skill
 > Bad naming will result in increased **technological debt**, very fast
-> Bad naming fosters "API misinterpretations" that will cost you hours and hairs.
+> Bad naming fosters "API misinterpretations" that will cost you hours (and hairs).
 
-*On that topic, I strongly suggest reading "The Name of the Wind" by Patrick Rothfuss.*
+<!-- *On that topic, I strongly suggest reading "The Name of the Wind" by Patrick Rothfuss.* -->
 
 ---
 
@@ -580,7 +580,7 @@ Add a second wave shape option using the `sawtooth` method of the `scipy.signal`
 
 ## How to comment code
 
-Comments are here to help you/others understand your code. Suggest a "header" comments for each "paragraph" of code, in english, with consistent and evocative wording.
+Comments are here to **help you/others understand the code**. Suggest a "header" comments for each "paragraph" of code, in english, with consistent and evocative wording.
 
 ```python 
 # init locals
@@ -665,7 +665,7 @@ Create a script that generates a `tkinter` window. Add a "Start" `button`, when 
 
 ## Git 
 
-Git is a command line utility to create version control over a set of scripts. It acts as a time-machine on steroids for devs.
+Git is a command line utility to create version control over a set of scripts. It acts as a **time-machine** on steroids for devs.
 
 ```bash
 git add modified_script.py
@@ -674,7 +674,7 @@ git commit -m 'description of the modification'
 
 ## GitHub
 
-[GitHub](https://github.com) is a remote-hosting server based on git to store, share and collaborate on projects.
+GitHub (https://github.com) is a remote-hosting server based on git to store, share and collaborate on projects.
 
 ---
 
@@ -719,6 +719,7 @@ git commit -m 'description of the modification'
 ## Additional features
 
 - Share read/write access
+- Stash / show / discard changes
 - Checkout former states
 - Branches
 - Pull Requests
@@ -730,9 +731,23 @@ git commit -m 'description of the modification'
 
 ---
 
-# QuickScript3 - 20 minutes to ...
+# QuickScript 3 - Dino Game
 
-## Push a commit that fixes the code at ...
+## Instruction
+
+Open the project `./quickscripts/3_dino`. Init a git repository and commit everything. Apply the following modifications:
+
+- Add looping ambiance `Sound/ambiance.mp3` at volume 0.3
+- Make Ptera spawn as often as Cactus, a third of them high enough not to be a threat
+- Make Clouds spawn as often as enemies, make them move 4 times faster
+- Replace triple Cactus by double Cactus (without modifying files)
+
+Show implemented changes using 
+
+```bash
+git diff main.py objects.py
+```
+
 
 ---
 
