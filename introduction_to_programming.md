@@ -28,15 +28,10 @@ David Poirier-Quinot
 
 ---
 
-<!-- _class: title -->
-# Theory
-
----
-
 # Data Types
 
 ```python
-s = 'hello' # string
+s = "hello" # string
 
 a = 1 # int
 
@@ -44,11 +39,13 @@ b = 0.1 # float
 
 c = True # boolean 
 
-list = [1, 2, 3] # list, can hold anything
+list = [1, 2, 3] # list, can hold anything, ordered
+
+set = {1, 4, 6, 7} # set, unordered, unique elements
 
 tuple = (1, 2, 3) # tuple, same as list but can't modify
 
-dictionary = {'apple', 3, 'orange', 2} # dictionary, can hold anything, unordered
+dictionary = {"apple", 3, "orange", 2} # dictionary, can hold anything, unordered
 
 z = None # undefined
 ```
@@ -70,6 +67,41 @@ z = None # undefined
 
 ---
 
+# Functions
+
+## Using existing functions
+
+```python
+res = 3.14
+print(res) # print to console
+```
+
+This code will print the value of `res` in the console. 
+- `print()` is a **function**. 
+- A function can accept any number of **arguments** (here just one: `res`). 
+
+Some functions return a result
+```python
+res = round(res) # return rounded number: 3
+```
+---
+
+
+# Script 1 - First steps
+
+## Instructions
+
+Go to https://pythononline.net. Create a script that adds two numbers and prints the result using the `print()` function.
+
+## Takeaways
+
+- Run script
+- Simple operation
+- Print to console (+ cast to string)
+- Debug workflow
+
+---
+
 # Symbols 
 
 ## Comparison operators
@@ -83,23 +115,81 @@ z = None # undefined
 
 ---
 
-<!-- _class: title -->
-# Scripting
+# Conditions
+
+## Conditions
+
+The `if/else` statement is used to do different things depending on a condition:
+
+```python
+price = 12
+
+if price < 10:
+    print("I'll buy it")
+
+else:
+    print("not a chance")
+```
 
 ---
 
-# Script 1 - First steps
+# Conditions
 
-## Instructions
+## Conditions
 
-Go to https://pythononline.net. Create a script that adds two numbers and prints the result using the `print()` method.
+`if/else` can become `if/else/elif` to add further conditions:
 
-## Takeaways
+```python
+price = 12
 
-- Run script
-- Simple operation
-- Print to console (+ cast to string)
-- Debug workflow
+if price < 10:
+    print("I'll buy it")
+
+elif price < 15:
+    print("can you give me a discount?")
+
+else:
+    print("not a chance")
+```
+
+---
+
+# Code syntax
+
+## Indentation
+
+Python uses indentation (either a tabulation or 4 spaces, see pep8) to delimitate blocks of code.
+
+```python
+if( show_advice == True ):
+
+    # only printed if condition met
+    print("don't touch anything or the floor is lava")
+
+# always printed
+print("welcome to the Cave of Wonders")
+```
+
+---
+
+# Modules
+
+## Importing modules
+
+A module is Python code (e.g. from another file) that can be imported in a your code using:
+
+```python 
+import random
+```
+
+## Module functions
+
+One usually imports a module to make use of its associated functions using the syntax:
+
+```python
+import random
+r = random.random()
+```
 
 ---
 
@@ -112,23 +202,59 @@ Create a script that picks a random float between 0 and 1 using the `random()` m
 ## Takeaways
 
 - Import a `module`
-- Generate a random `float`, cast to `int`
+- Generate a random `float`, round to nearest integer
 - Use an `if / else` statement
 - Compare two numbers using `==`
 
 ---
 
-# Script 3 - Dice session
+# Loops
+
+## For loop
+
+The `for` loop is used to iterate over elements in a sequence:
+
+```python
+# init list
+fruits = ["apple", "banana", "pear"]
+
+# print elements in list
+for fruit in fruits:
+    print(fruit)
+```
+
+---
+
+# Script 3 - Dice game
 
 ## Instructions
 
-Create a script that throws two 6-sided dices, a blue and a red, 10 times, using the `randint()` method of the `random` module. Print the success rate of the blue dice.
+Create a script that throws two 6-sided dices, a blue and a red, 10 times, using the `randint()` method of the `random` module (check e.g. https://docs.python.org for the API). Print the success rate of the blue dice.
 
 ## Takeaways
 
 - Use a `for` loop
 - Use a variable to keep track of system state
 - Generate a random integer
+
+---
+
+# Loops
+
+## While loop
+
+The `while` loop is used to repeat a block of code until a condition is met:
+
+```python
+# init counter
+counter = 1
+
+# loop until condition met
+while( counter < 10):
+    
+    counter = counter + 1
+    print(counter)
+```
 
 ---
 
@@ -140,19 +266,37 @@ Create a script that  picks a random number between 1 and `max_number` (e.g. 10)
 
 ## Takeaways
 
-- Parse user input from `string` to `int`
+- Require user input
+- Cast `string` to `int` using `int(my_string)`
 - Use a `while` loop
 
 ---
 
-<!-- _class: title -->
-# Theory
+# Code syntax 
+
+## Commenting code
+
+Comments are here to **help you/others understand the code**. Suggest a "header" comments for each "paragraph" of code, in english, with consistent and evocative wording.
+
+```python 
+# init locals
+score, num_trials, num_faces = 0, 10, 6
+
+# loop over trials
+for iTrial in range(num_trials):
+
+    # throw dice
+    dice_value = random.randint(1, num_faces)
+
+    # increment score
+    score += dice_value
+```
 
 ---
 
 # Code syntax
 
-## Interesting Python syntax
+## Useful Python syntax
 
 ```python
 # +=, *=, etc.
@@ -168,7 +312,7 @@ print(f"the score is: {score}") # or even {score:0.1f}
 x, y = 10, 20
 ```
 
-Checkout https://realpython.com/cheatsheets/python for more.
+See https://realpython.com/cheatsheets/python for more.
 
 ---
 
@@ -200,6 +344,18 @@ Checkout https://realpython.com/cheatsheets/python for more.
 
 ---
 
+# Setup programming environment
+
+## Virtual Environment
+
+- Multiple projects -> different Python versions and packages -> Interferences.
+- Virtual environment: an utility to install/run python at folder scale.
+- `requirement.txt`: a file shipped with a project listing the required python packages When to install in virtual env.
+- Virtual environment created using the `venv` utility
+- `pyenv` installed earlier uses virtual environments
+
+---
+
 # Vibe coding and the use of LLMs
 
 ## Double-edged sword
@@ -210,7 +366,7 @@ Checkout https://realpython.com/cheatsheets/python for more.
 `-` No more journey, directly reach destination. Fosters **apathy for your own projects**
 `-` No long term build-up skill, **instant red flag** during interviews
 
-## Like cheatcodes in games
+## Like cheat-codes in games
 - Use once you've completed "the game"
 - Maybe use it for stages uterly useless. Not boring, useless: neither useful nor fun
 - Even then, sparingly or you'll soon stop playing
@@ -226,23 +382,18 @@ Checkout https://realpython.com/cheatsheets/python for more.
 
 ## Instructions
 
-Manually find the smallest value of an array of 50 random integers in [1:100] and its index.
+Manually find the smallest value of an array of 50 random integers in [1:100]:
 
 ```python
 numbers = [random.randint(1, 100) for x in range(50)]
 ```
 
-without using any built in function such as:
+and the index of that value, **without** using any built in function such as:
 
 ```python
 min_value = min(numbers)
 min_index = numbers.index(min_value)
 ```
-
----
-
-<!-- _class: title -->
-# Scripting
 
 ---
 
@@ -289,11 +440,6 @@ Modify the script to handle any arbitrary number of these "tap delays" using a `
 
 ---
 
-<!-- _class: title -->
-# Theory
-
----
-
 # Overview of programming languages
 
 ## Different syntaxes and phylosophies
@@ -325,7 +471,7 @@ To get a genuine understanding, design the same application (e.g. read file, sor
 
 # Definitions
 
-- **Library**
+- **Library** (aka **module** in Python)
     - A collection of reusable functions/classes that your code calls
     - Examples: NumPy, SciPy, Matplotlib
 
@@ -345,11 +491,6 @@ To get a genuine understanding, design the same application (e.g. read file, sor
     - A sequence of steps used to accomplish a task
     - Example: load audio -> process -> analyze -> export
     - Reflect on your workflow to organise your code base / folder structure.
-
----
-
-<!-- _class: title -->
-# Scripting
 
 ---
 
@@ -411,11 +552,6 @@ Create a script that loads `./assets/drumloop.wav` and plays its content backwar
 
 ---
 
-<!-- _class: title -->
-# Theory
-
----
-
 # Object oriented programming
 
 ## Function
@@ -464,7 +600,7 @@ Key words / concepts:
 - constructor `__init__`
 - **attributes** and **methods** (i.e. functions)
 
-An object is an instance of a class:
+What we call an object is an instance of a class:
 
 ```python
 student = Person("John")
@@ -491,17 +627,13 @@ A good naming scheme makes **reading code more intuitive**.
 
 ---
 
-<!-- _class: title -->
-
-# Scripting
-
----
-
-# Script 9 - First class
+# Script 10 - First class (1/2)
 
 ## Instructions
 
-Create a function that converts euros to dollars. Create a `Vehicle` class that has two attributes: `name` and a `weight`. Give it a method `print()` that prints its information. Give it a method `get_toll_price` that returns a price as a function of `weight`. Make the method `get_toll_price` output either € or $ based on input argument.
+Create a function `should_i_win(luck)` that return `True` or `False` depending on the `luck` argument in 0:1. give `luck` a default value of 0.5. Test the function.
+
+Create an `Enemy` class that has one float attribute `health`. Give it a method `take_damage(damage)` that subtract `damage` from `health`. Test the class.
 
 ## Takeaways
 
@@ -511,13 +643,61 @@ Create a function that converts euros to dollars. Create a `Vehicle` class that 
 
 ---
 
+# Object oriented programming
+
+## Class Inheritance
+
+Inheritance allows to define a class that **inherits** **methods** and **properties** from another class.
+
+- The **parent** class is the class being inherited from
+- the **child** class is the class that inherits from another class
+
+---
+
+# Object oriented programming
+
+## Class Inheritance
+
+```python
+class Student(Person):
+
+    # constructor
+    def __init__(self, name,  id):
+        super().__init__(name) # call parent constructor
+        self.id = id
+    
+    # re-define method
+    def print(self):
+        print(f"name: {self.name}, id: {self.id}")
+    
+    # new method
+    def is_registered(self):
+        return id != None
+```
+
+---
+
+# Script 10 - First class (2/2)
+
+## Instructions
+
+Create the child class `AnnoyingEnemy` that inherits from the class `Enemy`. Give its constructor an additional attribute: `luck`. Modify its `take_damage()` so that depending on the outcome of `should_i_win(self.luck)` the enemy either takes damage or invokes its `boast` method, printing something nasty to the console.
+
+## Takeaways
+
+- Implement inheritance
+- Use parent methods
+- **Override** parent methods
+
+---
+
 # Script 11 - Create module
 
 ## Instructions
 
-Create a new folder named `my_module`. In it, create a Python script defining the `Vehicle` class from the previous script. Still in the `my_module` folder, create an empty `__init__.py` script. 
+Create a new folder named `my_module`. In it, create a Python script defining the `Enemy` and `AnnoyingEnemy` classes from the previous script. Still in the `my_module` folder, create an empty `__init__.py` script. 
 
-Next to the `my_module` folder create a script that imports the module, instantiates the `Vehicle` class and uses its methods.
+Next to the `my_module` folder create a script that imports the module, instantiates the `Enemy` and `AnnoyingEnemy` classes and uses their methods.
 
 ## Takeaway
 
@@ -537,11 +717,6 @@ Add a second wave shape option using the `sawtooth` method of the `scipy.signal`
 ## Takeaways
 
 - Full fledge class design and implementation
-
----
-
-<!-- _class: title -->
-# Theory
 
 ---
 
@@ -573,45 +748,6 @@ Add a second wave shape option using the `sawtooth` method of the `scipy.signal`
 > Bad naming fosters "API misinterpretations" that will cost you hours (and hairs).
 
 <!-- *On that topic, I strongly suggest reading "The Name of the Wind" by Patrick Rothfuss.* -->
-
----
-
-# Code syntax 
-
-## How to comment code
-
-Comments are here to **help you/others understand the code**. Suggest a "header" comments for each "paragraph" of code, in english, with consistent and evocative wording.
-
-```python 
-# init locals
-score, num_trials, num_faces = 0, 10, 6
-
-# loop over trials
-for iTrial in range(num_trials):
-
-    # throw dice
-    dice_value = random.randint(1, num_faces)
-
-    # increment score
-    score += dice_value
-```
-
----
-
-# Python installation
-
-## Virtual Environment
-
-- Multiple projects -> different Python versions and packages -> Interferences.
-- Virtual environment: an utility to install/run python at folder scale.
-- `requirement.txt`: a file shipped with a project listing the required python packages When to install in virtual env.
-- Virtual environment created using the `venv` utility
-- `pyenv` installed earlier uses virtual environments
-
----
-
-<!-- _class: title -->
-# Scripting
 
 ---
 
@@ -656,16 +792,11 @@ Create a script that generates a `tkinter` window. Add a "Start" `button`, when 
 
 ---
 
-<!-- _class: title -->
-# Theory
-
----
-
 # Version Control 
 
 ## Git 
 
-Git is a command line utility to create version control over a set of scripts. It acts as a **time-machine** on steroids for devs.
+Git is a **command line utility** to create version control over a set of scripts. It acts as a **time-machine** on steroids for devs.
 
 ```bash
 git add modified_script.py
@@ -674,7 +805,7 @@ git commit -m 'description of the modification'
 
 ## GitHub
 
-GitHub (https://github.com) is a remote-hosting server based on git to store, share and collaborate on projects.
+GitHub (https://github.com) is a **remote-hosting server** based on git to store, share and collaborate on projects.
 
 ---
 
@@ -747,12 +878,6 @@ Show implemented changes using
 ```bash
 git diff main.py objects.py
 ```
-
-
----
-
-<!-- _class: title -->
-# Scripting
 
 ---
 

@@ -1,36 +1,56 @@
 # %%
 
+# import 
+import random
+
 # local function
-def euro_to_dollar(x, rate=1.16):
-    return x * rate
+def should_i_win(my_luck = 0.5):
+    return random.random() <= my_luck
 
 # test function
-price = 2
-print(f"{price}€ = {euro_to_dollar(price):0.1f}$")
+print( should_i_win() )
+print( should_i_win(1) )
 
-# class vehicle 
-class Vehicle:
+# define class 
+class Enemy:
 
     # constructor
-    def __init__(self, name, weight):
-        self.name = name
-        self.weight = weight
+    def __init__(self, health):
+        self.health = health
     
-    # print vehicle info
-    def print(self):
-        print(f"Vehicle name: {self.name}, weight: {self.weight}kg")
+    # take damage
+    def take_damage(self, damage):
+        self.health = max(0, self.health - damage)
 
-    # get toll price from weight
-    def get_toll_price(self, unit="€"):
-        price = self.weight * 0.01
-        if( unit == "€"):
-            return str(price) + "€"
+
+class AnnoyingEnemy(Enemy):
+
+    # constructor
+    def __init__(self, health, luck):
+        super().__init__(health)
+        self.luck = luck
+
+    # take damage
+    def take_damage(self, damage):
+        
+        # lucky 
+        if( should_i_win(self.luck) ):
+            self.boast()
+        
+        # not lucky
         else:
-            return str(euro_to_dollar(price)) + "$"
+            super().take_damage(damage)
+        
+    # boast
+    def boast(self):
+        print("weak blow!")
 
 
-# test vehicle class
-cars = [Vehicle("Flash", 1300), Vehicle("Martin", 1900)]
-for car in cars:
-    car.print()
-    print(f"toll price for {car.name}: {car.get_toll_price("€")}")
+# test class
+# enemy = Enemy(10)
+enemy = AnnoyingEnemy(10, 0.5)
+for iTurn in range(3):
+    hit = random.randint(2, 5)
+    print(f"blow force: {hit}")
+    enemy.take_damage(hit)
+    print(f"enemy health: {enemy.health}")
