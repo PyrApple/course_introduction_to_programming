@@ -5,7 +5,8 @@ a = 2
 b = 3
 
 # addition 
-c = a+b
+res = a+b
 
 # log
-print(f"{a} + {b} = {c}")
+print(res)
+print(f"{a} + {b} = {res}")

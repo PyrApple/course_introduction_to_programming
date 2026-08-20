@@ -5,7 +5,7 @@ import customtkinter
 
 # define participant list
 # participant_names = ["A", "B", "C", "D", "E", "F", "G"]
-participant_names = ["Herman Von Hessiflag", "B", "C"]
+participant_names = ["John Roe", "Jane Pearl", "Alex Dormer"]
 
 # sanity check 
 if( len(participant_names) < 2 ): raise Exception("list too short, while loop will infinite")
@@ -13,10 +13,11 @@ if( len(participant_names) < 2 ): raise Exception("list too short, while loop wi
 # create window
 root = tkinter.Tk()
 root.title("random student picker")
-root.geometry("1400x550")
+root.geometry("1400x400")
 
 # init locals
-number_var = tkinter.StringVar()
+name_var = tkinter.StringVar()
+name_var.set("...")
 random_ids = []
 last_id = -1
 
@@ -47,12 +48,12 @@ def generate_random():
     if( len(random_ids) == 0): last_id = id
     
     # update locals
-    number_var.set(participant_names[id])
+    name_var.set(participant_names[id])
 
 # create ui elements
-button_generate = customtkinter.CTkButton(root, text="Pick Next", width=500, font=("Roboto", 100, "normal"), command=generate_random, fg_color="gray99", text_color="gray20", hover_color="gray90", border_width=2, border_color="gray20")
+button_generate = customtkinter.CTkButton(root, text="Pick Next", width=500, font=("Roboto", 100, "normal"), command=generate_random, fg_color="gray99", text_color="gray20", hover_color="gray95", border_width=2, border_color="gray20", corner_radius=20)
 button_generate.pack(padx=20, pady=30)
-customtkinter.CTkLabel(root, textvariable=number_var, font=("Roboto", 100, "normal"), text_color="gray20").pack(padx=20, pady=50)
+customtkinter.CTkLabel(root, textvariable=name_var, font=("Roboto", 100, "normal"), text_color="gray20").pack(padx=20, pady=50)
 
 # # set ui scale
 # customtkinter.set_widget_scaling(1)
