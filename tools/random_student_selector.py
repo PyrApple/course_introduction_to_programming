@@ -4,16 +4,25 @@ import random
 import customtkinter
 
 # define participant list
-# participant_names = ["A", "B", "C", "D", "E", "F", "G"]
-participant_names = ["John Roe", "Jane Pearl", "Alex Dormer"]
+participant_names = ["A", "B", "C", "D", "E", "F", "G"]
 
 # sanity check 
 if( len(participant_names) < 2 ): raise Exception("list too short, while loop will infinite")
 
+# centers the window to the main display/monitor
+def center_window_to_display(Screen: tkinter.Tk, width: int, height: int):
+    screen_width = Screen.winfo_screenwidth()
+    screen_height = Screen.winfo_screenheight()
+    x = int((screen_width/2) - (width/2))
+    y = int((screen_height/2) - (height/1.5))
+    return f"{width}x{height}+{x}+{y}"
+
 # create window
 root = tkinter.Tk()
 root.title("random student picker")
-root.geometry("1400x400")
+# root.geometry("1400x400")
+root.geometry(center_window_to_display(root, 1400, 400)) # center on screen
+# root.attributes('-topmost', True) # force (always) on top (when working from vscode)
 
 # init locals
 name_var = tkinter.StringVar()

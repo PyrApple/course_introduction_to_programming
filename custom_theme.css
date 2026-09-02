@@ -82,6 +82,11 @@ img[alt~="bottom-right"] {
   right: var(--margin-sides);
 }
 
+img[alt~="center"] {
+  display: block;
+  margin: auto;
+}
+
 img[alt~="border"] {
   border: solid;
   border-color: black;

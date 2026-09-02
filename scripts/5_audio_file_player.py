@@ -3,6 +3,7 @@
 # import 
 from pathlib import Path
 import soundfile as sf
+import sounddevice as sd
 
 # load audio file
 filePath = Path("../assets/drumloop.wav")

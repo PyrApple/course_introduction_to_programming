@@ -3,13 +3,14 @@ marp: true
 theme: custom_theme
 paginate: true
 size: 16:9
-footer: ENS Louis-Lumière • Introduction to Programming
+footer: ENS Louis Lumière • Introduction to Programming
 ---
 
 <!-- _class: title -->
 # Introduction to Programming
-## ENS-Louis Lumière
+## ENS Louis Lumière
 David Poirier-Quinot
+d.poirier@ens-louis-lumiere.fr
 
 ---
 
@@ -25,6 +26,22 @@ David Poirier-Quinot
     - simple syntax
     - versatile
     - large community
+
+---
+
+# Download materials
+
+## https://tinyurl.com/ypfxr2mk
+
+![w:400 center](assets_slides/download.png)
+
+---
+
+# Upload materials
+
+## https://tinyurl.com/2te6y4k3
+
+![w:400 center](assets_slides/upload.png)
 
 ---
 
@@ -401,7 +418,7 @@ min_index = numbers.index(min_value)
 
 ## Instructions
 
-Create a script that loads the audio file `./assets/drumloop.wav` and plays it using the `read` and `play` methods of the `soundfile` module.
+Create a script that loads the audio file `./assets/drumloop.wav` using the `read` method of the `soundfile` module and the `play` method of the `sounddevice` module.
 
 ## Takeaways
 
@@ -426,7 +443,7 @@ Next, create a score using a `dictionary` that stores an array of `notes` (indic
 
 ---
 
-# Script 5 - Tap delay reverb 
+# Script 6b - Tap delay reverb 
 
 ## Instructions
 

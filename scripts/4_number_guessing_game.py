@@ -5,7 +5,7 @@ import random
 
 # get random number 
 max_number = 10
-r = random.randint(1, 10)
+r = random.randint(1, max_number)
 
 # init local
 you_win = False
