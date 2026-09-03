@@ -13,8 +13,8 @@ audioIn, fs = sf.read(filePath)
 
 # define reverb configs (delays in ms)
 # reverb = {"gains":[1], "delays": [0]}
-reverb = {"gains":[1, 0.7], "delays": [0, 100]} 
-# reverb = {"gains":[1, 0.7, 0.5, 0.3, 0.1], "delays": [0, 20, 30, 40, 50]} 
+# reverb = {"gains":[1, 0.7], "delays": [0, 100]} 
+reverb = {"gains":[1, 0.7, 0.5, 0.3, 0.1], "delays": [0, 20, 30, 40, 50]} 
 
 # convert delays to number of samples
 reverb["delays"] = [int(fs * x/1000) for x in reverb["delays"]]
@@ -30,7 +30,7 @@ for iTap in range(len(reverb["delays"])):
     g = reverb["gains"][iTap]
     
     # add tap to output
-    audioOut[n:n+len(audioIn)] += reverb["gains"][iTap] * audioIn
+    audioOut[n:n+len(audioIn)] += g * audioIn
 
 # normalise output gain
 audioOut /= max(1, np.max(np.abs(audioOut)))
